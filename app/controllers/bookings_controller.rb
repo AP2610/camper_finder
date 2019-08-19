@@ -10,4 +10,12 @@ class BookingsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def accepted_params
+  end
+
+  def find_booking
+  end
 end

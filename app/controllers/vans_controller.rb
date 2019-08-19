@@ -1,11 +1,13 @@
 class VansController < ApplicationController
   def index
+    @vans = Van.all
   end
 
   def show
   end
 
   def new
+    @van = Van.new
   end
 
   def create
@@ -18,5 +20,13 @@ class VansController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def accepted_params
+  end
+
+  def find_van
   end
 end
