@@ -1,41 +1,25 @@
 
 <div class="container">
 
-  <h2><%= @van.title %></h2>
+  <div class="van-details">
+      <h2><%= @van.title %></h2>
+      <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
 
-  <p><%= @van.address %></p>
 
-  <div class="div">
-    <span class="czm8crp"> <%= @van.van_model %> </span>
-    <span class="aria-hidden="true>  ·  </span>
-    <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
-    <span class="aria-hidden="true>  ·  </span>
-    <span class="czm8crp"> <%= @van.price_cents %>/per night </span>
+      <div class="van_summary">
+        <span class="czm8crp"><%= @van.van_model %> </span>
+        <span class="aria-hidden="true> · </span>
+        <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
+        <span class="aria-hidden="true> · </span>
+        <span class="czm8crp"> <%= @van.price_cents %>/per night </span>
+      </div>
+
+      <hr>
+
+      <div class="van_description">
+        <span>van description</span>
+        <span> <%= @van.description %></span>
+      </div>
+
   </div>
-
-  <div class="div"> <p><%= @van.description %></p></div>
-
-
-
-
 </div>
-
-
-
-
-
-
-<!--
-  create_table "vans", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "address"
-    t.string "van_model"
-    t.integer "sleeping_capacity"
-    t.integer "price_cents"
-    t.string "photo"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_vans_on_user_id"
- -->
