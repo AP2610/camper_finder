@@ -1,20 +1,25 @@
 
 <div class="container">
 
+
+
   <div class="van-details">
-      <h2><%= @van.title %></h2>
-      <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
+    <div class="header">
+      <div>
+        <h2><%= @van.title %></h2>
+        <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
 
 
-      <div class="van_summary">
-        <span class="czm8crp"><%= @van.van_model %> </span>
-        <span class="aria-hidden="true> · </span>
-        <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
-        <span class="aria-hidden="true> · </span>
-        <span class="czm8crp"> <%= @van.price_cents %>/per night </span>
+        <div class="van_summary">
+          <span class="czm8crp"><%= @van.van_model %> </span>
+          <span class="aria-hidden="true> · </span>
+          <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
+          <span class="aria-hidden="true> · </span>
+          <span class="czm8crp"> <%= @van.price_cents %>/per night </span>
+        </div>
       </div>
-
-      <hr>
+      <div><%= image_tag @van.user.photo, class: 'avatar' %></div>
+    </div>
 
       <div class="van_description">
         <span>van description</span>
