@@ -33,7 +33,7 @@ puts "Now we have #{User.count} users"
 25.times do
   van = Van.create(
     title: "#{Faker::Coffee.blend_name} Van",
-    description: Faker::Lorem.paragraph(sentence_count: 4),
+    description: Faker::Lorem.paragraph(sentence_count: 27),
     address: Faker::Address.full_address,
     van_model: Faker::Vehicle.make,
     sleeping_capacity: rand(1..4),

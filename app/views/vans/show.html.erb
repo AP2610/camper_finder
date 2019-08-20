@@ -1,18 +1,24 @@
-<h1>VAN information</h1>
+
+<div class="container">
+
+  <h2><%= @van.title %></h2>
+
+  <p><%= @van.address %></p>
+
+  <div class="div">
+    <span class="czm8crp"> <%= @van.van_model %> </span>
+    <span class="aria-hidden="true>  ·  </span>
+    <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
+    <span class="aria-hidden="true>  ·  </span>
+    <span class="czm8crp"> <%= @van.price_cents %>/per night </span>
+  </div>
+
+  <div class="div"> <p><%= @van.description %></p></div>
 
 
-<h2><%= @van.title %></h2>
-
-<p><%= @van.address %></p>
-
-<p>van model: <%= @van.van_model %></p>
-
-<p>sleeping_capacity: <%= @van.sleeping_capacity %></p>
-
-<p><%= @van.description %></p>
 
 
-<p>price per night:<%= @van.price_cents %></p>
+</div>
 
 
 
