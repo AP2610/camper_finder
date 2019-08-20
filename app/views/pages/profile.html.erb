@@ -1,3 +1,22 @@
 <% if current_user.present? %>
-
-<% end %>
+<div class="background-white">
+  <div class="container">
+    <div class="mb-3 ">
+      <h1> Hi, I'm <%= current_user.first_name %></h1>
+      <p> Joined in <%= current_user.created_at.year %></p>
+    </div>
+    <div class=" py-4 ">
+      <div class="mb-3">
+        <h4></h4>
+      </div>
+      <div class="mb-3 quote">
+        <%= image_tag "quote-grey.png", alt: "quote", width: 30 %>
+      </div>
+      <div class="">
+        <p><%= current_user.bio %></p>
+      </div>
+      <div class= "divider"></div>
+    </div>
+  </div>
+  <% end %>
+</div>
