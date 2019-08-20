@@ -14,10 +14,10 @@ class VansController < ApplicationController
   def create
     @van = Van.new(accepted_params)
     @van.user = current_user
-    if @van.save!
+    if @van.save
       redirect_to van_path(@van)
     else
-      render 'new'
+      render :new
     end
   end
 
