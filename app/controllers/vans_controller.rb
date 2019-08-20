@@ -12,6 +12,13 @@ class VansController < ApplicationController
   end
 
   def create
+    @van = Van.new(accepted_params)
+    @van.user = current_user
+    if @van.save!
+      redirect_to van_path(@van)
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -26,6 +33,7 @@ class VansController < ApplicationController
   private
 
   def accepted_params
+    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :address)
   end
 
   def find_van

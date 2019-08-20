@@ -1,2 +1,17 @@
-<h1>Vans#new</h1>
-<p>Find me in app/views/vans/new.html.erb</p>
+<div class="container">
+
+  <h3>Upload a van for renting</h3>
+
+  <div class="form">
+    <%= simple_form_for @van do |f| %>
+      <%= f.input :title %>
+      <%= f.input :van_model %>
+      <%= f.input :sleeping_capacity %>
+      <%= f.input :description %>
+      <%= f.input :price_cents %>
+      <%= f.input :address %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+
+</div>
