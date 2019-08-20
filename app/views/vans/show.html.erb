@@ -1,2 +1,35 @@
-<h1>Vans#show</h1>
-<p>Find me in app/views/vans/show.html.erb</p>
+<h1>VAN information</h1>
+
+
+<h2><%= @van.title %></h2>
+
+<p><%= @van.address %></p>
+
+<p>van model: <%= @van.van_model %></p>
+
+<p>sleeping_capacity: <%= @van.sleeping_capacity %></p>
+
+<p><%= @van.description %></p>
+
+
+<p>price per night:<%= @van.price_cents %></p>
+
+
+
+
+
+
+<!--
+  create_table "vans", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "address"
+    t.string "van_model"
+    t.integer "sleeping_capacity"
+    t.integer "price_cents"
+    t.string "photo"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_vans_on_user_id"
+ -->
