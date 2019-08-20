@@ -1,2 +1,25 @@
-<h1>Vans#show</h1>
-<p>Find me in app/views/vans/show.html.erb</p>
+
+<div class="container">
+
+  <div class="van-details">
+      <h2><%= @van.title %></h2>
+      <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
+
+
+      <div class="van_summary">
+        <span class="czm8crp"><%= @van.van_model %> </span>
+        <span class="aria-hidden="true> · </span>
+        <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
+        <span class="aria-hidden="true> · </span>
+        <span class="czm8crp"> <%= @van.price_cents %>/per night </span>
+      </div>
+
+      <hr>
+
+      <div class="van_description">
+        <span>van description</span>
+        <span> <%= @van.description %></span>
+      </div>
+
+  </div>
+</div>
