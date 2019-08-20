@@ -15,6 +15,50 @@ User.destroy_all
 
 puts "Seeds Destroyed"
 
+# Create test seeds for each model where the user password is known
+
+puts "Creating individual user"
+
+  test_user = User.create(
+    first_name: "Test",
+    last_name: "User",
+    email: "test_user@gmail.com",
+    password: "1234567",
+    photo: Faker::LoremPixel.image(size: "60x60"),
+    bio: Faker::Lorem.paragraph(sentence_count: 4)
+    )
+
+puts "Individual user created"
+
+puts "Creating individual van"
+
+  test_van = Van.create(
+    title: "#{Faker::Coffee.blend_name} Van",
+    description: Faker::Lorem.paragraph(sentence_count: 27),
+    address: Faker::Address.full_address,
+    van_model: Faker::Vehicle.make,
+    sleeping_capacity: rand(1..4),
+    price_cents: rand(1000..10000),
+    photo: Faker::LoremFlickr.image(size: "1080x720"),
+    user: test_user
+    )
+
+puts "Individual van created"
+
+puts "Creating individual booking"
+
+  test_booking = Booking.create(
+    start_date: Faker::Date.forward(days: rand(1..10)),
+    end_date: Faker::Date.forward(days: rand(11..20)),
+    pax: rand(1..4),
+    user: test_user,
+    van: test_van
+    )
+
+puts "Individual booking created"
+
+# Create multiple seeds for each model for the sake of mock data
+
 puts "Creating seeds for user, vans, and bookings"
 
 10.times do
