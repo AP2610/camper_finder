@@ -5,6 +5,11 @@ ruby '2.6.3'
 
 gem 'devise'
 gem 'faker'
+gem 'money-rails', '~>1.12'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
+# gem 'carrierwave-webp'
+# Already present gems
 
 
 gem 'bootsnap', require: false
