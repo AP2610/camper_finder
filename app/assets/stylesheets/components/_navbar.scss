@@ -1,15 +1,16 @@
 .navbar-lewagon {
   justify-content: space-between;
   box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
-  background-color: rgba(255,255,255, 0.8);
-  position: fixed;
-  width: 100%;
-  z-index: 2;
+  background-color: #fff;
+  position: sticky;
   top: 0;
+  // width: 100%;
+  // z-index: 2;
+  // height: 100px;
 }
 
 .nav-item:hover {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #FF595E;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,5 +18,5 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 50px;
+  width: 40px;
 }
