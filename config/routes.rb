@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'profile', to: 'pages#profile', as: :profile
+  get 'bookings', to: 'bookings#list', as: :bookings_list
 
   resources :vans do
-    resources :bookings, only: [:index, :new, :create, :destroy]
+    resources :bookings, only: [:new, :create, :destroy]
   end
 end

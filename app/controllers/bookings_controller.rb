@@ -1,5 +1,10 @@
 class BookingsController < ApplicationController
-  def index
+  before_action :authenticate_user!, only: [:list, :new, :create]
+
+  def list
+    @futur_booking = current_user.bookings.select { |booking| booking.start_date > Date.today }
+    @past_booking = current_user.bookings.select { |booking| booking.start_date <= Date.today }
+
   end
 
   def new

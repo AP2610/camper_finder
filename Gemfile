@@ -11,6 +11,7 @@ gem 'carrierwave', '~> 1.2'
 # gem 'carrierwave-webp'
 # Already present gems
 
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

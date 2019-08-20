@@ -11,7 +11,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+body {
+  background-color: white;
+}
+
 @import "pages/home";
-
-// Application Variables
-
