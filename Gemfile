@@ -6,6 +6,7 @@ ruby '2.6.3'
 gem 'devise'
 gem 'faker'
 
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
