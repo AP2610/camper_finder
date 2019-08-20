@@ -18,7 +18,8 @@
           <span class="czm8crp"> <%= @van.price_cents %>€/per night </span>
         </div>
       </div>
-      <div><%= image_tag @van.user.photo, class: 'avatar' %></div>
+<!--       if photo.exists? -->
+      <div><%= (image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
     </div>
 
       <div class="van_description">
