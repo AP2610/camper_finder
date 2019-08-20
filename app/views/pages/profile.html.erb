@@ -1,14 +1,14 @@
 <% if current_user.present? %>
 <div class="background-white">
+
   <div class="container">
+
     <div class="mb-3 ">
       <h1> Hi, I'm <%= current_user.first_name %></h1>
       <p> Joined in <%= current_user.created_at.year %></p>
     </div>
+
     <div class=" py-4 ">
-      <div class="mb-3">
-        <h4></h4>
-      </div>
       <div class="mb-3 quote">
         <%= image_tag "quote-grey.png", alt: "quote", width: 30 %>
       </div>
@@ -17,6 +17,24 @@
       </div>
       <div class= "divider"></div>
     </div>
+
+    <h6>My vans available for renting:</h6>
+
+    <% if current_user.bookings  %>
+      <p class="font-weight-light">You don't have a van for rent yet, like to add one? </p>
+    <% else %>
+      <p>check</p>
+    <% end %>
+
+    <div class="btn-van-list small">
+      <%= link_to "Add a van", new_van_path%>
+    </div>
+
   </div>
+
+
   <% end %>
+
 </div>
+
+
