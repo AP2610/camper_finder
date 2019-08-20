@@ -5,6 +5,7 @@ ruby '2.6.3'
 
 gem 'devise'
 gem 'faker'
+gem 'money-rails', '~>1.12'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'

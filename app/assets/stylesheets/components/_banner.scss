@@ -1,0 +1,37 @@
+$url: 'https://images.unsplash.com/photo-1515876305430-f06edab8282a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80';
+
+.banner {
+  height: calc(100vh - 60px);
+  background: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%), url($url);
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.banner-content {
+  h4 {
+    font-weight: lighter;
+    margin-bottom: 5px;
+  }
+}
+
+.btn-van-list {
+  background-color: #FF595E;
+  border-radius: 3px;
+  border-style: none;
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  &:hover {
+    background-color: #D44A4F;
+    text-decoration: none;
+    color: #fff;
+  }
+}
