@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'profile', to: 'pages#profile', as: :profile
 
-  resources :van do
-    resources :booking, only: [:index, :new, :create, :destroy]
+  resources :vans do
+    resources :bookings, only: [:index, :new, :create, :destroy]
   end
 end

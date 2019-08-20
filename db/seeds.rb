@@ -9,9 +9,9 @@ require 'faker'
 
 puts "Destroying previous seeds"
 
-User.destroy_all
-Van.destroy_all
 Booking.destroy_all
+Van.destroy_all
+User.destroy_all
 
 puts "Seeds Destroyed"
 
