@@ -24,7 +24,7 @@ puts "Creating individual user"
     last_name: "User",
     email: "test_user@gmail.com",
     password: "1234567",
-    photo: Faker::LoremPixel.image(size: "60x60"),
+    remote_photo_url: 'https://i.pravatar.cc/60',
     bio: Faker::Lorem.paragraph(sentence_count: 4)
     )
 
@@ -39,7 +39,7 @@ puts "Creating individual van"
     van_model: Faker::Vehicle.make,
     sleeping_capacity: rand(1..4),
     price_cents: rand(1000..10000),
-    photo: Faker::LoremFlickr.image(size: "1080x720"),
+    remote_photo_url: "https://loremflickr.com/1080/720/motorhome",
     user: test_user
     )
 
@@ -67,7 +67,7 @@ puts "Creating seeds for user, vans, and bookings"
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 8),
-    photo: Faker::LoremPixel.image(size: "60x60"),
+    remote_photo_url: "https://i.pravatar.cc/60",
     bio: Faker::Lorem.paragraph(sentence_count: 4)
     )
 end
@@ -82,7 +82,7 @@ puts "Now we have #{User.count} users"
     van_model: Faker::Vehicle.make,
     sleeping_capacity: rand(1..4),
     price_cents: rand(1000..10000),
-    photo: Faker::LoremFlickr.image(size: "1080x720"),
+    remote_photo_url: "https://loremflickr.com/1080/720/motorhome",
     user: User.find(rand(1..6))
     )
 end
