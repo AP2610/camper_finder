@@ -6,8 +6,7 @@ ruby '2.6.3'
 gem 'devise'
 gem 'faker'
 gem 'money-rails', '~>1.12'
-gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'cloudinary', '~> 1.9.1'
 # Already present gems
 
 gem 'bootsnap', require: false
