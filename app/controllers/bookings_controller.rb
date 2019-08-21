@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def list
     @futur_booking = current_user.bookings.select { |booking| booking.start_date > Date.today }
     @past_booking = current_user.bookings.select { |booking| booking.start_date <= Date.today }
+
   end
 
   # def new
@@ -14,8 +15,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new
     @booking.pax = accepted_params[:pax].to_i if accepted_params[:pax] != ""
-    @booking.start_date = Date.parse(accepted_params[:start_date])
-    @booking.end_date = Date.parse(accepted_params[:end_date])
+    @booking.start_date = Date.parse(accepted_params[:start_date]) if accepted_params[:start_date] != ""
+    @booking.end_date = Date.parse(accepted_params[:end_date]) if accepted_params[:end_date] != ""
     @booking.van = Van.find(params[:van_id])
     @booking.user = current_user
     if @booking.save
@@ -27,6 +28,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_list_path
   end
 
   private
