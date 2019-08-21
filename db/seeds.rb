@@ -19,41 +19,41 @@ puts "Seeds Destroyed"
 
 puts "Creating individual user"
 
-  test_user = User.create(
-    first_name: "Test",
-    last_name: "User",
-    email: "test_user@gmail.com",
-    password: "1234567",
-    remote_photo_url: 'https://i.pravatar.cc/60',
-    bio: Faker::Lorem.paragraph(sentence_count: 4)
-    )
+test_user = User.create(
+  first_name: "Test",
+  last_name: "User",
+  email: "test_user@gmail.com",
+  password: "1234567",
+  remote_photo_url: 'https://i.pravatar.cc/60',
+  bio: Faker::Lorem.paragraph(sentence_count: 4)
+  )
 
 puts "Individual user created"
 
 puts "Creating individual van"
 
-  test_van = Van.create(
-    title: "#{Faker::Coffee.blend_name} Van",
-    description: Faker::Lorem.paragraph(sentence_count: 27),
-    address: Faker::Address.full_address,
-    van_model: Faker::Vehicle.make,
-    sleeping_capacity: rand(1..4),
-    price_cents: rand(1000..10000),
-    remote_photo_url: "https://loremflickr.com/1080/720/motorhome",
-    user: test_user
-    )
+test_van = Van.create(
+  title: "#{Faker::Coffee.blend_name} Van",
+  description: Faker::Lorem.paragraph(sentence_count: 27),
+  address: Faker::Address.full_address,
+  van_model: Faker::Vehicle.make,
+  sleeping_capacity: rand(1..4),
+  price_cents: rand(1000..10000),
+  remote_photo_url: "https://loremflickr.com/1080/720/motorhome",
+  user: test_user
+  )
 
 puts "Individual van created"
 
 puts "Creating individual booking"
 
-  test_booking = Booking.create(
-    start_date: Faker::Date.forward(days: rand(1..10)),
-    end_date: Faker::Date.forward(days: rand(11..20)),
-    pax: rand(1..4),
-    user: test_user,
-    van: test_van
-    )
+test_booking = Booking.create(
+  start_date: Faker::Date.forward(days: rand(1..10)),
+  end_date: Faker::Date.forward(days: rand(11..20)),
+  pax: rand(1..4),
+  user: test_user,
+  van: test_van
+  )
 
 puts "Individual booking created"
 
@@ -61,11 +61,11 @@ puts "Individual booking created"
 
 puts "Creating seeds for user, vans, and bookings"
 
-10.times do
+5.times do
   user = User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
+    email: Faker::Internet.unique.email,
     password: Faker::Internet.password(min_length: 8),
     remote_photo_url: "https://i.pravatar.cc/60",
     bio: Faker::Lorem.paragraph(sentence_count: 4)
@@ -74,7 +74,8 @@ end
 
 puts "Now we have #{User.count} users"
 
-25.times do
+# User.all.each do |user|
+10.times do
   van = Van.create(
     title: "#{Faker::Coffee.blend_name} Van",
     description: Faker::Lorem.paragraph(sentence_count: 27),
@@ -83,9 +84,10 @@ puts "Now we have #{User.count} users"
     sleeping_capacity: rand(1..4),
     price_cents: rand(1000..10000),
     remote_photo_url: "https://loremflickr.com/1080/720/motorhome",
-    user: User.find(rand(1..6))
+    user: User.all.sample
     )
 end
+
 
 puts "Now we have #{Van.count} vans"
 
@@ -95,8 +97,8 @@ puts "Now we have #{Van.count} vans"
     start_date: Faker::Date.backward(days: rand(1..10)),
     end_date: Faker::Date.forward(days: rand(1..10)),
     pax: rand(1..4),
-    user: User.find(rand(2..10)),
-    van: Van.find(rand(1..19))
+    user: User.all.sample,
+    van: Van.all.sample
     )
 end
 
@@ -105,8 +107,8 @@ end
     start_date: Faker::Date.forward(days: rand(1..10)),
     end_date: Faker::Date.forward(days: rand(11..20)),
     pax: rand(1..4),
-    user: User.find(rand(2..10)),
-    van: Van.find(rand(1..19))
+    user: User.all.sample,
+    van: Van.all.sample
     )
 end
 
