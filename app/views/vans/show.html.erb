@@ -19,7 +19,7 @@
         </div>
       </div>
 <!--       if photo.exists? -->
-      <div><%= (image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
+      <div><%= (cl_image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
     </div>
 
       <div class="van_description">
