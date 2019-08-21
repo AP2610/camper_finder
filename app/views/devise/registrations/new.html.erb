@@ -1,9 +1,9 @@
+<div class="form-inputs">
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :email,
@@ -18,16 +18,13 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :bio %>
-  </div>
 
-   <div class="profile-picture form-inputs">
+
       <%= f.input :photo, as: :file, id: "output", input_html: { onchange: "loadFile(event)" } %>
       <%= f.input :photo_cache, as: :hidden %>
-   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
+    <%= f.button :submit, "Sign up", class: "btn btn-secondary" %>
 <% end %>
 
 <%= render "devise/shared/links" %>
+   </div>
