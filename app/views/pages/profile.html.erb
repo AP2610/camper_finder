@@ -4,8 +4,10 @@
   <div class="container">
 
     <div class="mb-3 profile-content">
-      <h1> Hi, I'm <%= current_user.first_name %></h1>
-      <p> Joined in <%= current_user.created_at.year %></p>
+      <div>
+        <h1> Hi, I'm <%= current_user.first_name %></h1>
+        <p> <em>Joined in <%= current_user.created_at.year %></em></p>
+      </div>
       <div class="profile-picture">
         <%= cl_image_tag(current_user.photo.url(:avatar), fetch_format: :auto) %>
       </div>
