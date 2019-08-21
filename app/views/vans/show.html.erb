@@ -1,6 +1,9 @@
 
 <div class="container">
 
+  <div class="image-van">
+    <%= cl_image_tag(@van.photo) %>
+  </div>
 
 
   <div class="van-details">
@@ -22,13 +25,12 @@
       <div><%= (cl_image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
     </div>
 
-
-
-    <div class="van_description">
-      <span>van description</span>
-      <span> <%= @van.description %></span>
-    </div>
-
+      <div class="van_description">
+      <hr>
+        <span><strong>Van description</strong></span>
+        <span> <%= @van.description %></span>
+      </div>
+    
   </div>
 
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">

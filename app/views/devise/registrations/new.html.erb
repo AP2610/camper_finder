@@ -4,6 +4,8 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -15,10 +17,13 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
     <%= f.input :bio %>
   </div>
+
+   <div class="profile-picture form-inputs">
+      <%= f.input :photo, as: :file, id: "output", input_html: { onchange: "loadFile(event)" } %>
+      <%= f.input :photo_cache, as: :hidden %>
+   </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
