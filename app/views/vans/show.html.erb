@@ -22,16 +22,22 @@
       <div><%= (cl_image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
     </div>
 
-    %= simple_form_for (@bookings) do |f| %>
-    <%= f.input :start_date, :end_date, as: :date_time_picker%>
-    <%= f.input :pax, input_html: {class: "beautiful-dropdown" }, include_hidden: false
-    %>
-    <%= f.submit "Reserve", class: "btn btn-primary" %>
+
 
     <div class="van_description">
       <span>van description</span>
       <span> <%= @van.description %></span>
     </div>
 
+  </div>
+
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+      <h2>Book this Van</h2>
+       <%= simple_form_for([@van, @booking]) do |f| %>
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+         <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+         <%= f.input :pax, collection: [1,2,3,4],input_html: {class: "beautiful-dropdown" }, include_hidden: false %>
+       <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
