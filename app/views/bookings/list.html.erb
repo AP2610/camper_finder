@@ -4,69 +4,40 @@
     <h1>My bookings</h1>
   </div>
 
+<!-- This is the upcoming plans section -->
   <div class="upcoming-plans mb-5">
     <div class="mb-4">
       <h3>Upcoming plans</h3>
     </div>
 
     <% if @futur_booking.empty? %>
-    <p> You have no upcoming trips. Start exploring ideas for your next trip</p>
-    <button> <%= link_to "Explore Vans", vans_path %></button>
+      <p> You have no upcoming trips. Start exploring ideas for your next trip</p>
+      <button> <%= link_to "Explore Vans", vans_path %></button>
 
     <% else  %>
-
-
-    <% @futur_booking.each do |booking| %>
-    <%= link_to van_path(booking.van) do %>
-
-    <div class="card-product">
-      <%= cl_image_tag booking.van.photo, alt: booking.van.title %>
-
-      <div class="card-product-infos">
-        <h2><%= booking.van.title %></h2>
-        <p>
-          <%= booking.start_date.strftime("%b") %>
-          <%= booking.start_date.strftime("%d") %>
-          -
-          <%= booking.end_date.strftime("%b") %>
-          <%= booking.end_date.strftime("%d") %>
-        </p>
-        <p> <%= booking.van.address %></p>
-      </div>
+      <% @futur_booking.each do |booking| %>
+        <%= render "shared/booking_card", booking: booking  %>
       <% end %>
-      <% end %>
-    </div>
     <% end %>
   </div>
 
+
+
+
+<!-- This is the past plans section -->
   <div class="past-plans">
     <div class="mb-4">
       <h3>Where you have been</h3>
     </div>
 
     <% if @past_booking.empty? %>
-    <p> you have no past bookings</p>
+      <p> you have no past bookings</p>
 
     <% else  %>
 
-    <% @past_booking.each do |booking| %>
-      <%= link_to van_path(booking.van) do %>
-        <div class="card-product">
-          <%= cl_image_tag booking.van.photo, alt: booking.van.title %>
-          <div class="card-product-infos">
-            <h2><%= booking.van.title %></h2>
-            <p>
-              <%= booking.start_date.strftime("%b") %>
-              <%= booking.start_date.strftime("%d") %>
-              -
-              <%= booking.end_date.strftime("%b") %>
-              <%= booking.end_date.strftime("%d") %>
-            </p>
-            <p> <%= booking.van.address %></p>
-          </div>
-        </div>
+      <% @past_booking.each do |booking| %>
+        <%= render "shared/booking_card", booking: booking    %>
       <% end %>
-    <% end %>
   <% end %>
   </div>
 </div>
