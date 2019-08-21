@@ -20,10 +20,13 @@
 
     <h6>My vans available for renting:</h6>
 
-    <% if current_user.bookings  %>
-      <p class="font-weight-light">You don't have a van for rent yet, like to add one? </p>
+    <% if current_user.vans  %>
+      <% current_user.vans.each do |van| %>
+      <p> <%= van.title %> </p>
+      <% end %>
+
     <% else %>
-      <p>TO DO:list all vans of user</p>
+      <p class="font-weight-light">You don't have a van for rent yet, like to add one? </p>
     <% end %>
 
     <div class="btn-van-list small">
