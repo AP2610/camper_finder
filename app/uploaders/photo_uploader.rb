@@ -3,7 +3,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   process eager: true # Force version generation at upload time.
 
-  process convert: 'jpg'
+  # process convert: 'jpg'
 
   process resize_to_fit: [300, 300]
 
