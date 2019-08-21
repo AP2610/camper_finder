@@ -2,9 +2,9 @@
 
   <div class="form-general">
 
-      <h3>Upload a van for renting</h3>
+      <h1>Upload a van for renting</h1>
 
-      <div class="form">
+      <div class="form-inputs">
         <%= simple_form_for @van do |f| %>
           <%= f.input :title %>
           <%= f.input :van_model %>
@@ -12,10 +12,18 @@
           <%= f.input :description %>
           <%= f.input :price_cents %>
           <%= f.input :address %>
-          <%= f.submit class: 'btn-van-list' %>
-        <% end %>
       </div>
 
+        <div class="van-image-upload">
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit "Create your listing", class: 'btn-van-list' %>
+        </div>
+      <% end %>
   </div>
+
 
 </div>
