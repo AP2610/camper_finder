@@ -12,3 +12,27 @@
     font-size: 15px;
   }
 }
+
+.image-van {
+  img {
+    height: 200px ;
+  }
+}
+
+
+
+@media(min-width: 768px) {
+.image-van {
+  img {
+    height: 300px ;
+  }
+}
+}
+
+@media(min-width: 1030px) {
+.image-van {
+  img {
+    height: 500px ;
+  }
+}
+}
