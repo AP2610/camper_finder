@@ -15,6 +15,18 @@ User.destroy_all
 
 puts "Seeds Destroyed"
 
+
+# Creating 10 addresses
+
+addresses = [
+  "2 Theobalds Rd, Holborn, London",
+  "16 Villa Gaudelet, Paris",
+  "2 Overhoeksplein, Amsterdam",
+  "100 Alte Jakobstraße, Berlin",
+  "250 Rue Royale, Bruxelles"
+]
+
+
 # Create test seeds for each model where the user password is known
 
 puts "Creating individual user"
@@ -35,7 +47,7 @@ puts "Creating individual van"
 test_van = Van.create(
   title: "#{Faker::Coffee.blend_name} Van",
   description: Faker::Lorem.paragraph(sentence_count: 27),
-  address: Faker::Address.full_address,
+  address: addresses.sample,
   van_model: Faker::Vehicle.make,
   sleeping_capacity: rand(1..4),
   price_cents: rand(1000..10000),
@@ -74,12 +86,13 @@ end
 
 puts "Now we have #{User.count} users"
 
+
 # User.all.each do |user|
 10.times do
   van = Van.create(
     title: "#{Faker::Coffee.blend_name} Van",
     description: Faker::Lorem.paragraph(sentence_count: 27),
-    address: Faker::Address.full_address,
+    address: addresses.sample,
     van_model: Faker::Vehicle.make,
     sleeping_capacity: rand(1..4),
     price_cents: rand(1000..10000),
