@@ -5,4 +5,5 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, :pax, presence: true
   validates :pax, presence: true
+  validates :pax, inclusion: { in: [1, 2, 3, 4] }
 end

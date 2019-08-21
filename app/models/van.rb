@@ -4,7 +4,8 @@ class Van < ApplicationRecord
   has_many :reviews, through: :bookings, dependent: :destroy
 
   validates :title, :address, :price_cents, presence: true
-  validates :pax, inclusion: { in: [1, 2, 3, 4] }
 
   mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
