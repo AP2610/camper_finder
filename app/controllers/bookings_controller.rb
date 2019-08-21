@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
       redirect_to bookings_list_path
     else
       @van = @booking.van
-      render 'vans/show'
+      redirect_to new_user_session_path
     end
   end
 
