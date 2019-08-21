@@ -19,10 +19,22 @@
     </div>
 
     <h6>My vans available for renting:</h6>
+    <hr>
 
     <% if current_user.vans  %>
+
       <% current_user.vans.each do |van| %>
-      <p> <%= van.title %> </p>
+        <%= link_to van_path(van), class: "no-link_style" do %>
+            <div class="myvan-card-product">
+                 <%= cl_image_tag(van.photo, :width => 200, :crop => :scale, :fetch_format => :auto) %>
+                 <div class="myvan-card-product-info ">
+                    <h6 class="font-weight-light" > <%= van.title %> </h6>
+                      <div class="van_summary">
+                        <p> <%= van.van_model %> · <%= van.sleeping_capacity %> persons · <%= van.price_cents %>€/per night</p>
+                      </div>
+                </div>
+            </div>
+        <% end %>
       <% end %>
 
     <% else %>
@@ -35,9 +47,7 @@
 
   </div>
 
-
   <% end %>
 
 </div>
-
 
