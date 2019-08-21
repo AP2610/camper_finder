@@ -4,8 +4,19 @@
 }
 
 .divider {
-    display: block;
-    height: 1px;
-    border-bottom: 4px solid #EBEBEB;
-    width: 32px;
+  display: block;
+  height: 1px;
+  border-bottom: 4px solid #EBEBEB;
+  width: 32px;
+}
+
+.profile-content {
+  position: relative;
+  margin-top: 10px;
+}
+
+.profile-picture {
+  position: absolute;
+  left: 910px;
+  top: 8px;
 }
