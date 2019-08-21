@@ -1,0 +1,18 @@
+<%= link_to van_path(booking.van) do %>
+
+    <div class="card-product">
+      <%= cl_image_tag booking.van.photo, alt: booking.van.title %>
+
+      <div class="card-product-infos">
+        <h2><%= booking.van.title %></h2>
+        <p>
+          <%= booking.start_date.strftime("%b") %>
+          <%= booking.start_date.strftime("%d") %>
+          -
+          <%= booking.end_date.strftime("%b") %>
+          <%= booking.end_date.strftime("%d") %>
+        </p>
+        <p> <%= booking.van.address %></p>
+      </div>
+    </div>
+      <% end %>
