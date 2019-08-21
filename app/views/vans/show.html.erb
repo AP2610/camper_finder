@@ -18,14 +18,20 @@
           <span class="czm8crp"> <%= @van.price_cents %>€/per night </span>
         </div>
       </div>
-<!--       if photo.exists? -->
+      <!--       if photo.exists? -->
       <div><%= (cl_image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
     </div>
 
-      <div class="van_description">
-        <span>van description</span>
-        <span> <%= @van.description %></span>
-      </div>
+    %= simple_form_for (@bookings) do |f| %>
+    <%= f.input :start_date, :end_date, as: :date_time_picker%>
+    <%= f.input :pax, input_html: {class: "beautiful-dropdown" }, include_hidden: false
+    %>
+    <%= f.submit "Reserve", class: "btn btn-primary" %>
+
+    <div class="van_description">
+      <span>van description</span>
+      <span> <%= @van.description %></span>
+    </div>
 
   </div>
 </div>
