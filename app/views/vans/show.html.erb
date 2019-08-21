@@ -1,5 +1,6 @@
 
 <div class="container">
+  <div class=
 
   <div class="image-van">
     <%= cl_image_tag(@van.photo) %>
@@ -30,7 +31,7 @@
         <span><strong>Van description</strong></span>
         <span> <%= @van.description %></span>
       </div>
-    
+
   </div>
 
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
@@ -39,7 +40,7 @@
         <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
          <%= f.input :pax, collection: [1,2,3,4],input_html: {class: "beautiful-dropdown" }, include_hidden: false %>
-       <%= f.button :submit, "Go", class: "btn btn-primary" %>
+       <%= f.button :submit, "Go", class: "btn-van-list" %>
     <% end %>
   </div>
 </div>
