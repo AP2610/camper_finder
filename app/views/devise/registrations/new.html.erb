@@ -20,6 +20,11 @@
     <%= f.input :bio %>
   </div>
 
+   <div class="profile-picture form-inputs">
+      <%= f.input :photo, as: :file, id: "output", input_html: { onchange: "loadFile(event)" } %>
+      <%= f.input :photo_cache, as: :hidden %>
+   </div>
+
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
