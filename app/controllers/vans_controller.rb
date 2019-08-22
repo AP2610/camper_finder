@@ -42,7 +42,7 @@ class VansController < ApplicationController
   private
 
   def accepted_params
-    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :address, :photo)
+    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :price, :address, :photo)
   end
 
   def find_van
