@@ -15,20 +15,21 @@
   <% end %>
 </div>
 
-<div class="map-list-show">
 
-  <div class="card-container">
-    <div class="row">
-      <% @vans.each do |van| %>
-        <div class="card col-xs-12 col-sm-6 col-lg-3">
-          <%= link_to van_path(van) do  %>
-            <div class="card-trip">
-              <%= cl_image_tag van.photo %>
-              <div class="card-trip-infos">
-                <%=van.van_model%> -
-                <%=van.sleeping_capacity%>
-                <div class="title-text"><%=van.title%></div>
-              </div>
+    <div class="content">
+      <div class="cards">
+
+
+        <% @vans.each do |van| %>
+          <div class="card">
+            <%= link_to van_path(van) do  %>
+              <div class="card-trip">
+                <%= cl_image_tag van.photo %>
+                <div class="card-trip-infos">
+                  <%=van.van_model%> -
+                  <%=van.sleeping_capacity%>
+                  <div class="title-text"><%=van.title%></div>
+                </div>
               <h2 class="card-trip-pricing">
                 <%=van.price %>€/per night
               </h2>
@@ -39,12 +40,13 @@
     </div>
   </div>
 
-   <div
+
+      <div
     id="map"
-    style="width: 100%;
+    style="
+    width: 400px;
     height: 600px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-
-</div>
+    </div>
