@@ -16,3 +16,18 @@
     text-decoration: none;
   }
 }
+
+.btn-minimal {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  margin-left: 0;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    border-bottom: 2px solid #D44A4F;
+    text-decoration: none;
+    color: #0E0000;
+  }
+}
