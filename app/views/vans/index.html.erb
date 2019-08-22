@@ -23,11 +23,21 @@
         <div class="card col-xs-12 col-sm-6 col-lg-3">
           <%= link_to van_path(van) do  %>
             <div class="card-trip">
-              <%= cl_image_tag van.photo %>
+              <div class="card-trip-top">
+                <%= cl_image_tag van.photo, class: "card-trip-top-image" %>
+                <div class="title-text">
+                  <%= van.title%>
+                </div>
+                <div>
+                  <%= cl_image_tag van.user.photo.url(:bright_face), height: 40, class: "card-trip-top-avatar" %>
+                </div>
+              </div>
               <div class="card-trip-infos">
-                <%=van.van_model%> -
-                <%=van.sleeping_capacity%>
-                <div class="title-text"><%=van.title%></div>
+                <%= van.van_model%> - <% van.sleeping_capacity.times do  %> 👤
+                <% end %>
+                <div>
+                  <%= van.address.split[-1] %>
+                </div>
               </div>
               <h2 class="card-trip-pricing">
                 <%=van.price %>€/per night
