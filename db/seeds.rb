@@ -9,6 +9,7 @@ require 'faker'
 
 puts "Destroying previous seeds"
 
+Review.destroy_all
 Booking.destroy_all
 Van.destroy_all
 User.destroy_all
@@ -69,6 +70,15 @@ test_booking = Booking.create(
 
 puts "Individual booking created"
 
+
+puts "Creating individual review"
+  test_review = Review.create(
+    rating: rand(1..5),
+    content: Faker::Lorem.paragraph(sentence_count: 15),
+    booking: test_booking
+    )
+
+puts "Individual review created"
 # Create multiple seeds for each model for the sake of mock data
 
 puts "Creating seeds for user, vans, and bookings"
@@ -126,5 +136,19 @@ end
 end
 
 puts "Now we have #{Booking.count} bookings"
+
+
+
+puts "Add reviews to bookings"
+
+20. times do
+  review = Review.create(
+    rating: rand(1..5),
+    content: Faker::Lorem.paragraph(sentence_count: 15),
+    booking: Booking.all.sample
+    )
+end
+
+puts "Now we have #{Review.count} reviews"
 
 puts "Seeding completed"
