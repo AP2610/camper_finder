@@ -8,11 +8,11 @@
         <div class="card col-xs-12 col-sm-6 col-lg-3">
           <%= link_to van_path(van) do  %>
             <div class="card-trip">
-              <img src="<%= van.photo %>" alt="">
+              <%= cl_image_tag van.photo %>
               <div class="card-trip-infos">
-                  <%=van.van_model%> -
-                  <%=van.sleeping_capacity%>
-                  <div class="title-text"><%=van.title%></div>
+                <%=van.van_model%> -
+                <%=van.sleeping_capacity%>
+                <div class="title-text"><%=van.title%></div>
               </div>
               <h2 class="card-trip-pricing">
                 <%=van.price_cents %>€/per night
