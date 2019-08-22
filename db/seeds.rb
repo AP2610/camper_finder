@@ -115,6 +115,8 @@ end
 puts "Now we have #{Van.count} vans"
 
 # Past (current) Bookings
+past_booking = []
+
 10.times do
   booking = Booking.create(
     start_date: Faker::Date.backward(days: rand(1..10)),
@@ -123,6 +125,8 @@ puts "Now we have #{Van.count} vans"
     user: User.all.sample,
     van: Van.all.sample
     )
+  past_booking << booking
+
 end
 
 10.times do
@@ -139,15 +143,19 @@ puts "Now we have #{Booking.count} bookings"
 
 
 
-puts "Add reviews to bookings"
+puts "Add reviews to past bookings"
 
-20. times do
+
+
+  past_booking.each do |booking|
+
   review = Review.create(
     rating: rand(1..5),
     content: Faker::Lorem.paragraph(sentence_count: 15),
-    booking: Booking.all.sample
+    booking: booking
     )
-end
+  end
+
 
 puts "Now we have #{Review.count} reviews"
 
