@@ -1,0 +1,10 @@
+<div class="container col-6 mt-5">
+<h1>Add a review to <%= @van.title %></h1>
+
+<%= simple_form_for [@van, @booking, @review] do |f| %>
+<%= f.input :content %>
+<%= f.input :rating %>
+<%= f.submit "add review", class: "btn btn-primary" %>
+<% end %>
+
+</div>

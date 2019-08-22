@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'bookings', to: 'bookings#list', as: :bookings_list
 
   resources :vans do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:create] do
+      resources :reviews, only: [:new, :create]
+    end
   end
 
   resources :bookings, only: :destroy

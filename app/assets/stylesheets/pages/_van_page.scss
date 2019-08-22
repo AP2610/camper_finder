@@ -27,12 +27,6 @@
 }
 
 .van-review-content {
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // white-space: nowrap;
-  // width:200px;
-
-
   width: 200px;
   margin: 0 0 1em 0;
   overflow: hidden;
@@ -40,7 +34,7 @@
 
 
 .van-reviews {
-  .card-product {
+  .van-reviews-card {
     height: 173px;
   }
 }
