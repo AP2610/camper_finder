@@ -1,82 +1,147 @@
-
-<div class="container">
-
-  <div class="image-van">
-    <%= cl_image_tag(@van.photo) %>
+<div class="swek-container">
+  <!-- beginning top banner -->
+  <div class="swek-flex">
+    <%= cl_image_tag @van.photo, class: "image-van" %>
   </div>
+  <!-- end top banner -->
+  <div class="swek-flex2">
+    <div class="swek-left">
+      <h2><%= @van.title %></h2>
+      <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
 
-  <div class="van-details mb-5">
-    <div class="header">
-      <div>
-        <h2><%= @van.title %></h2>
-        <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
-
-
-        <div class="van_summary">
-          <span class="czm8crp"><%= @van.van_model %> </span>
-          <span class="aria-hidden="true> · </span>
-          <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
-          <span class="aria-hidden="true> · </span>
-          <span class="czm8crp"> <%= @van.price %>€/per night </span>
-        </div>
+      <div class="van_summary">
+        <span class="czm8crp"><%= @van.van_model %> </span>
+        <span class="aria-hidden="true> · </span>
+        <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
+        <span class="aria-hidden="true> · </span>
+        <span class="czm8crp"> <%= @van.price %>€/per night </span>
       </div>
-      <!--       if photo.exists? -->
-      <div><%= (cl_image_tag @van.user.photo, class: 'avatar') if @van.user.photo %></div>
-    </div>
 
-    <div class="van_description">
-      <hr>
-      <span><strong>Van description</strong></span>
-      <span> <%= @van.description %></span>
-    </div>
-  </div>
+      <div class="van_description">
+        <hr>
+        <span><strong>Van description</strong></span>
+        <span> <%= @van.description %></span>
+      </div>
 
-
-<!-- div of the review of that van -->
-
-  <div class="van-reviews mb-5">
-    <h2 class= "py-3"> Reviews of the vans</h2>
-
-    <% if @van.reviews.empty?  %>
-      <p>No reviews yet for this van</p>
-
-    <% else %>
-
-      <% @van.reviews.each do |review| %>
-
-          <div class="van-reviews-card mb-3">
+      <!-- Beginning of the review section -->
+      <div class="swek-reviews">
+        <h4>Reviews: </h4>
+        <% @van.reviews.each do |review| %>
+          <div class="card-product">
             <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
-
-            <div class="van-reviews-card-infos">
-              <h2>
-                <%= review.booking.user.first_name %>
-              </h2>
-              <p>
-                <%= review.booking.start_date.strftime("%b") %>
-                <%= review.booking.start_date.strftime("%Y") %>
-              </p>
-              <div class="van-review-content line-clamp">
-                <%= review.content %>
-              </div>
+            <div class="card-product-infos">
+              <h2><%= review.booking.user.first_name %></h2>
+              <p><%= review.content %></p>
             </div>
-
           </div>
-      <% end %>
-
-    <% end %>
+        <% end %>
+      </div>
+      <!-- end of review section -->
+    </div>
+    <div class="swek-right">
+      <!-- book this van from beginning -->
+      <div>
+        <h2>Book this Van</h2>
+        <%= simple_form_for([@van, @booking]) do |f| %>
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :pax, collection: [1,2,3,4],input_html: {class: "beautiful-dropdown" }, include_hidden: false %>
+        <%= f.button :submit, "Go", class: "btn-van-list" %>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-<!-- div of the form to add a booking -->
-
-  <div class="form-wrapper" style="width: 600px">
-    <h2>Book this Van</h2>
-    <%= simple_form_for([@van, @booking]) do |f| %>
-      <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :pax, collection: [1,2,3,4],input_html: {class: "beautiful-dropdown" }, include_hidden: false %>
-      <%= f.button :submit, "Go", class: "btn-van-list" %>
-    <% end %>
-  </div>
-
+  <!-- book this van from end -->
 </div>
+
+<style>
+  .image-van {
+    width: 45vw;
+  }
+
+  .card-product {
+    overflow: hidden;
+    height: 120px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+  }
+
+  .card-product img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+
+  .card-product h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  .card-product p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+  }
+
+  .card-product .card-product-infos {
+    padding: 16px;
+  }
+
+  .swek-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swek-flex2 {
+    display: flex;
+    margin-top: 5%;
+  }
+
+  .swek-right {
+    width: 40%;
+  }
+
+  .swek-left {
+    width: 60%;
+    margin-right: 10%;
+  }
+
+  .van-description {
+    margin-top: 10%;
+  }
+
+  .swek-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .swek-reviews {
+    margin-top: 10%;
+    margin-bottom: 30%;
+  }
+
+  @media(max-width: 1030px) {
+    .swek-flex2 {
+      display: block;
+    }
+
+    .swek-reviews {
+      margin-top: 5%;
+      margin-bottom: 10%;
+    }
+
+    .swek-left {
+      width: 100%;
+    }
+
+    .swek-right {
+      width: 100%;
+    }
+  }
+</style>
