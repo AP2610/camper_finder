@@ -1,0 +1,17 @@
+.btn-van-list {
+  background-color: #FF595E;
+  border-radius: 3px;
+  border-style: none;
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 5px;
+  margin-left: 0;
+  color: white;
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: #D44A4F;
+    text-decoration: none;
+  }
+}

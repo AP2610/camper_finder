@@ -2,8 +2,19 @@
   <div class="banner-content">
     <h1>Camper Finder</h1>
     <h4>You're journey awaits</h4>
-    <div class="btn-van-list">
-      <%= link_to "Find your van", vans_path%>
+    <div class="form-search">
+      <div class="">
+        <%= form_tag vans_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-search-input",
+            placeholder: "Enter a destination"
+          %>
+      </div>
+      <div class="form-search-btn">
+        <%= submit_tag "Search", class: "btn-van-list btn-search" %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -17,22 +17,3 @@ $url: 'https://images.unsplash.com/photo-1515876305430-f06edab8282a?ixlib=rb-1.2
     margin-bottom: 5px;
   }
 }
-
-.btn-van-list {
-  background-color: #FF595E;
-  border-radius: 3px;
-  border-style: none;
-  display: inline-block;
-  padding: 10px 15px;
-  margin: 5px;
-  margin-left: 0;
-  a {
-    text-decoration: none;
-    color: #fff;
-  }
-  &:hover {
-    background-color: #D44A4F;
-    text-decoration: none;
-    color: #fff;
-  }
-}
