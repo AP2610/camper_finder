@@ -18,7 +18,7 @@
       </div>
 
       <div class="card-product-right d-none d-sm-block p-3">
-        <%= link_to "Add a review", new_van_booking_review_path(  booking.van.id, booking.id, @review), class: "pr-3" %>
+        <%= link_to "Add a review", new_van_booking_review_path(  booking.van.id, booking.id, @review), class: "btn-minimal pr-3" %>
         <%= link_to '<i class="fas fa-trash"></i>'.html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }%>
       </div>
 
