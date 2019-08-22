@@ -36,9 +36,7 @@
 
   <div class="van-reviews mb-5">
     <h2 class= "py-3"> Reviews of the vans</h2>
-    <% @van.bookings.each do |booking| %>
-
-      <% booking.reviews.each do |review| %>
+    <% @van.reviews.each do |review| %>
 
         <div class="card-product mb-3">
           <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
@@ -57,8 +55,6 @@
           </div>
 
         </div>
-
-      <% end %>
     <% end %>
 
   </div>
