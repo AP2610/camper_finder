@@ -1,10 +1,9 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!, only: [:list, :new]
+  before_action :authenticate_user!, only: [:list, :new, :create]
 
   def list
     @futur_booking = current_user.bookings.select { |booking| booking.start_date > Date.today }
     @past_booking = current_user.bookings.select { |booking| booking.start_date <= Date.today }
-
   end
 
   # def new
@@ -17,13 +16,13 @@ class BookingsController < ApplicationController
     @booking.pax = accepted_params[:pax].to_i if accepted_params[:pax] != ""
     @booking.start_date = Date.parse(accepted_params[:start_date]) if accepted_params[:start_date] != ""
     @booking.end_date = Date.parse(accepted_params[:end_date]) if accepted_params[:end_date] != ""
-    @booking.van = Van.find(params[:van_id])
+    @van = Van.find(params[:van_id])
+    @booking.van = @van
     @booking.user = current_user
     if @booking.save
       redirect_to bookings_list_path
     else
-      @van = @booking.van
-      redirect_to new_user_session_path
+      render 'vans/show'
     end
   end
 

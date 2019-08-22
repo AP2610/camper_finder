@@ -9,6 +9,7 @@ require 'faker'
 
 puts "Destroying previous seeds"
 
+Review.destroy_all
 Booking.destroy_all
 Van.destroy_all
 User.destroy_all
@@ -69,6 +70,15 @@ test_booking = Booking.create(
 
 puts "Individual booking created"
 
+
+puts "Creating individual review"
+  test_review = Review.create(
+    rating: rand(1..5),
+    content: Faker::Lorem.paragraph(sentence_count: 15),
+    booking: test_booking
+    )
+
+puts "Individual review created"
 # Create multiple seeds for each model for the sake of mock data
 
 puts "Creating seeds for user, vans, and bookings"
@@ -105,6 +115,8 @@ end
 puts "Now we have #{Van.count} vans"
 
 # Past (current) Bookings
+past_booking = []
+
 10.times do
   booking = Booking.create(
     start_date: Faker::Date.backward(days: rand(1..10)),
@@ -113,6 +125,8 @@ puts "Now we have #{Van.count} vans"
     user: User.all.sample,
     van: Van.all.sample
     )
+  past_booking << booking
+
 end
 
 10.times do
@@ -126,5 +140,23 @@ end
 end
 
 puts "Now we have #{Booking.count} bookings"
+
+
+
+puts "Add reviews to past bookings"
+
+
+
+  past_booking.each do |booking|
+
+  review = Review.create(
+    rating: rand(1..5),
+    content: Faker::Lorem.paragraph(sentence_count: 15),
+    booking: booking
+    )
+  end
+
+
+puts "Now we have #{Review.count} reviews"
 
 puts "Seeding completed"

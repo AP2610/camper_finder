@@ -13,15 +13,16 @@ class VansController < ApplicationController
     @markers = @vans.map do |van|
       {
         lat: van.latitude,
-        lng: van.longitude
+        lng: van.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { van: van })
       }
     end
-
   end
 
   def show
     @van = Van.find(params[:id])
     @booking = Booking.new
+
   end
 
   def new
@@ -50,7 +51,7 @@ class VansController < ApplicationController
   private
 
   def accepted_params
-    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :address)
+    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :price, :address, :photo)
   end
 
   def find_van
