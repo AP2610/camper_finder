@@ -1,8 +1,6 @@
 .form-title {
   margin-top: 10px;
-  // display: inline-block;
   text-align: center;
-  // border-bottom: 2px solid #FF595E;
   hr {
     width: 70px;
     background-color: #FF595E;
@@ -28,6 +26,11 @@
   // display: flex;
   // justify-content: center;
 }
+
+// .form-wrapper {
+   // this is to be used to create a box which
+   // encapsulates the whole form
+// }
 
 @media (max-width: 640px) {
   .form-input {

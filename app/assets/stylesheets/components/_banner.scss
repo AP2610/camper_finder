@@ -17,3 +17,10 @@ $url: 'https://images.unsplash.com/photo-1515876305430-f06edab8282a?ixlib=rb-1.2
     margin-bottom: 5px;
   }
 }
+
+.banner-secondary {
+  height: calc(100vh - 60px);
+  background: linear-gradient(-225deg, rgba(30,30,30,0.6) 30%, rgba(46,46,46,0.5) 80%), url($url);
+  background-size: cover;
+  color: #fff;
+}
