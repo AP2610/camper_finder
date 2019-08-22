@@ -6,16 +6,19 @@
   <!-- end top banner -->
   <div class="swek-flex2">
     <div class="swek-left">
-      <h2><%= @van.title %></h2>
-      <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
+      <div class="van-summary">
+        <h2><%= @van.title %></h2>
+            <span class="font-weight-light address"> <p ><%= @van.address %></p></span>
 
-      <div class="van_summary">
-        <span class="czm8crp"><%= @van.van_model %> </span>
-        <span class="aria-hidden="true> · </span>
-        <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
-        <span class="aria-hidden="true> · </span>
-        <span class="czm8crp"> <%= @van.price %>€/per night </span>
-      </div>
+            <div class="">
+              <span class="czm8crp"><%= @van.van_model %> </span>
+              <span class="aria-hidden="true> · </span>
+              <span class="czm8crp"> <%= @van.sleeping_capacity %> persons </span>
+              <span class="aria-hidden="true> · </span>
+              <span class="czm8crp"> <%= @van.price %>€/per night </span>
+              <span class="van-summary-avatar"> <%= cl_image_tag @van.user.photo.url(:avatar), height: 70 %></span>
+            </div>
+          </div>
 
       <div class="van_description">
         <hr>
@@ -58,6 +61,16 @@
   .image-van {
     width: 45vw;
   }
+
+  .van-summary {
+  position: relative;
+}
+
+.van-summary-avatar {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
 
   .card-product {
     overflow: hidden;
