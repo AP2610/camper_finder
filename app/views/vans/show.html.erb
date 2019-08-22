@@ -36,27 +36,34 @@
 
   <div class="van-reviews mb-5">
     <h2 class= "py-3"> Reviews of the vans</h2>
-    <% @van.reviews.each do |review| %>
 
-        <div class="card-product mb-3">
-          <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
+    <% if @van.reviews.empty?  %>
+      <p>No reviews yet for this van</p>
 
-          <div class="card-product-infos">
-            <h2>
-              <%= review.booking.user.first_name %>
-            </h2>
-            <p>
-              <%= review.booking.start_date.strftime("%b") %>
-              <%= review.booking.start_date.strftime("%Y") %>
-            </p>
-            <div class="van-review-content line-clamp">
-              <%= review.content %>
+    <% else %>
+
+      <% @van.reviews.each do |review| %>
+
+          <div class="card-product mb-3">
+            <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
+
+            <div class="card-product-infos">
+              <h2>
+                <%= review.booking.user.first_name %>
+              </h2>
+              <p>
+                <%= review.booking.start_date.strftime("%b") %>
+                <%= review.booking.start_date.strftime("%Y") %>
+              </p>
+              <div class="van-review-content line-clamp">
+                <%= review.content %>
+              </div>
             </div>
+
           </div>
+      <% end %>
 
-        </div>
     <% end %>
-
   </div>
 
 
