@@ -5,14 +5,18 @@
     <!-- <div class="btn-van-list">
       <%= link_to "Find your van", vans_path%>
     </div> -->
-    <div>
-      <%= form_tag vans_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Enter a destination"
-        %>
-        <%= submit_tag "Search", class: "btn-van-list" %>
+    <div class="form-search">
+      <div class="">
+        <%= form_tag vans_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-search-input",
+            placeholder: "Enter a destination"
+          %>
+      </div>
+      <div class="form-search-btn">
+        <%= submit_tag "Search", class: "btn-van-list", id: "btn-homepage" %>
+      </div>
       <% end %>
     </div>
   </div>

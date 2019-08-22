@@ -18,22 +18,39 @@ $url: 'https://images.unsplash.com/photo-1515876305430-f06edab8282a?ixlib=rb-1.2
   }
 }
 
-.btn-van-list {
-  background-color: #FF595E;
-  border-radius: 3px;
-  border-style: none;
-  display: inline-block;
-  padding: 10px 15px;
-  margin: 5px;
-  margin-left: 0;
-  color: white;
-  a {
-    text-decoration: none;
-    // color: #fff;
+.form-search {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 50px;
+}
+
+.form-search-input {
+  line-height: 42px;
+  border: none;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 600px;
+  max-width: 600px;
+}
+
+#btn-homepage {
+  margin: 0;
+  border-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+@media(max-width: 775px) {
+  .form-search-input {
+    max-width: 500px;
   }
-  &:hover {
-    background-color: #D44A4F;
-    text-decoration: none;
-    // color: #fff;
+}
+
+@media(max-width: 600px) {
+  .form-search-input {
+    max-width: 200px;
   }
 }
