@@ -1,4 +1,5 @@
 class VansController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   def index
     # @vans = Van.geocoded
 
@@ -23,7 +24,6 @@ class VansController < ApplicationController
   def show
     @van = Van.find(params[:id])
     @booking = Booking.new
-
   end
 
   def new

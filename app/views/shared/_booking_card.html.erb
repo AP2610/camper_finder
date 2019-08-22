@@ -1,18 +1,28 @@
 <%= link_to van_path(booking.van) do %>
 
     <div class="card-product">
-      <%= cl_image_tag booking.van.photo, alt: booking.van.title %>
 
-      <div class="card-product-infos">
-        <h2><%= booking.van.title %></h2>
-        <p>
-          <%= booking.start_date.strftime("%b") %>
-          <%= booking.start_date.strftime("%d") %>
-          -
-          <%= booking.end_date.strftime("%b") %>
-          <%= booking.end_date.strftime("%d") %>
-        </p>
-        <p> <%= booking.van.address %></p>
+      <div class="card-product-left">
+        <%= cl_image_tag booking.van.photo, alt: booking.van.title %>
+        <div class="card-product-infos">
+          <h2><%= booking.van.title %></h2>
+          <p>
+            <%= booking.start_date.strftime("%b") %>
+            <%= booking.start_date.strftime("%d") %>
+            -
+            <%= booking.end_date.strftime("%b") %>
+            <%= booking.end_date.strftime("%d") %>
+          </p>
+          <p> <%= booking.van.address %></p>
+        </div>
       </div>
+
+      <div class="card-product-right d-none d-sm-block p-3">
+        <%= link_to "Add a review", new_van_booking_review_path(  booking.van.id, booking.id, @review), class: "pr-3" %>
+        <%= link_to '<i class="fas fa-trash"></i>'.html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }%>
+      </div>
+
+
     </div>
-      <% end %>
+
+<% end %>

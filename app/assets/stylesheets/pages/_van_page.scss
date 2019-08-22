@@ -27,20 +27,14 @@
 }
 
 .van-review-content {
-  // overflow: hidden;
-  // text-overflow: ellipsis;
-  // white-space: nowrap;
-  // width:200px;
-
-
-    width: 200px;
+  width: 200px;
   margin: 0 0 1em 0;
   overflow: hidden;
 }
 
 
 .van-reviews {
-  .card-product {
+  .van-reviews-card {
     height: 173px;
   }
 }
@@ -53,20 +47,20 @@
 
 
 @media(min-width: 768px) {
-.image-van {
-  img {
-    height: 300px ;
+  .image-van {
+    img {
+      height: 300px ;
+    }
   }
-}
-.van-review-content {
+  .van-review-content {
     width:600px;
-}
+  }
 }
 
 @media(min-width: 1030px) {
-.image-van {
-  img {
-    height: 500px ;
+  .image-van {
+    img {
+      height: 500px ;
+    }
   }
-}
 }
