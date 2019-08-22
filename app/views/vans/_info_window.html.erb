@@ -1,0 +1,5 @@
+<%= link_to van_path(van) do %>
+<h4><%= van.title  %></h4>
+<p><%= van.address  %></p>
+<%= cl_image_tag van.photo, width: 200, height: 100  %>
+<% end %>
