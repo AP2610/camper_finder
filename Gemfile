@@ -10,6 +10,7 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'geocoder'
 gem 'searchkick', '~> 3.0'
+gem 'pg_search'
 
 # gem 'carrierwave-webp'
 # Already present gems

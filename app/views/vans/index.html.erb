@@ -1,4 +1,19 @@
-<h1 class="title-van">Camper Vans to stay</h1>
+<h1 class="title-van">Find your ideal campervan</h1>
+
+<div class="form-search" id="form-search-van-index">
+  <div class="">
+    <%= form_tag vans_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-search-input",
+        placeholder: "Enter a destination"
+        %>
+  </div>
+  <div class="form-search-btn">
+    <%= submit_tag "Search", class: "btn-van-list btn-search" %>
+  </div>
+  <% end %>
+</div>
 
 <div class="map-list-show">
 
