@@ -9,10 +9,18 @@
   padding: 16px;
 }
 
+
 #map {
   height: 100vh;
   position: sticky;
   top: 0;
+}
+
+#form-search-van-index {
+  position: relative;
+  top: auto;
+  justify-content: start;
+  margin-left: 15px;
 }
 
 /*needed for old page, remove after merge of new frontend module*/
