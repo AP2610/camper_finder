@@ -19,14 +19,21 @@ puts "Seeds Destroyed"
 
 # Creating 10 addresses
 
-addresses = [
+addresses1 = [
   "2 Theobalds Rd, Holborn, London",
   "16 Villa Gaudelet, Paris",
   "2 Overhoeksplein, Amsterdam",
   "100 Alte Jakobstraße, Berlin",
-  "250 Rue Royale, Bruxelles"
+  "250 Rue Royale, Bruxelles",
 ]
 
+addresses2 = [
+  "150 London Wall, London",
+  "1 Avenue du Colonel Henri Rol-Tanguy, Paris",
+  "Postjesweg 106 bg, Amsterdam",
+  "Brunnenstraße 105, Berlin",
+  "Square de l'Atomium, Bruxelles"
+]
 
 # Create test seeds for each model where the user password is known
 
@@ -48,7 +55,7 @@ puts "Creating individual van"
 test_van = Van.create(
   title: "#{Faker::Coffee.blend_name} Van",
   description: Faker::Lorem.paragraph(sentence_count: 27),
-  address: addresses.sample,
+  address: addresses1.sample,
   van_model: Faker::Vehicle.make,
   sleeping_capacity: rand(1..4),
   price_cents: rand(1000..10000),
@@ -98,11 +105,11 @@ puts "Now we have #{User.count} users"
 
 
 # User.all.each do |user|
-10.times do
+5.times do
   van = Van.create(
     title: "#{Faker::Coffee.blend_name} Van",
     description: Faker::Lorem.paragraph(sentence_count: 27),
-    address: addresses.sample,
+    address: addresses1.sample,
     van_model: Faker::Vehicle.make,
     sleeping_capacity: rand(1..4),
     price_cents: rand(1000..10000),
@@ -111,7 +118,18 @@ puts "Now we have #{User.count} users"
     )
 end
 
-
+5.times do
+  van = Van.create(
+    title: "#{Faker::Coffee.blend_name} Van",
+    description: Faker::Lorem.paragraph(sentence_count: 27),
+    address: addresses2.sample,
+    van_model: Faker::Vehicle.make,
+    sleeping_capacity: rand(1..4),
+    price_cents: rand(1000..10000),
+    remote_photo_url: "https://loremflickr.com/1080/720/motorhome",
+    user: User.all.sample
+    )
+end
 puts "Now we have #{Van.count} vans"
 
 # Past (current) Bookings
