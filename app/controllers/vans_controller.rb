@@ -10,6 +10,7 @@ class VansController < ApplicationController
       vans = Van.all
     end
     @vans = vans.select {|van| van.latitude && van.longitude}
+    # @city = van.address.split[-1]
 
     @markers = @vans.map do |van|
       {
