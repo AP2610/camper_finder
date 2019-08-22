@@ -16,13 +16,16 @@
 
     <% else  %>
       <% @futur_booking.each do |booking| %>
-        <%= render "shared/booking_card", booking: booking  %>
-        <%= link_to '<i class="fas fa-trash"></i>'.html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }%>
-        <% end %>
+        <div class="relative-card">
+          <%= render "shared/booking_card", booking: booking  %>
+          <div class="absolute-icon-1-1">
+            <%= link_to '<i class="fas fa-trash"></i>'.html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }%>
+          </div>
+          <br>
+        </div>
+       <% end %>
     <% end %>
   </div>
-
-
 
 
 <!-- This is the past plans section -->
@@ -38,7 +41,7 @@
 
       <% @past_booking.each do |booking| %>
         <%= render "shared/booking_card", booking: booking    %>
-        <%= link_to '<i class="fas fa-trash"></i>'.html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you sure?"} %>
+        <br>
     <% end %>
   <% end %>
   </div>

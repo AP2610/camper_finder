@@ -8,7 +8,6 @@ class VansController < ApplicationController
         lng: van.longitude
       }
     end
-
   end
 
   def show
@@ -43,7 +42,7 @@ class VansController < ApplicationController
   private
 
   def accepted_params
-    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :address)
+    params.require(:van).permit(:title, :van_model, :sleeping_capacity, :description, :price_cents, :address, :photo)
   end
 
   def find_van
