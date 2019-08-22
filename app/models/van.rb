@@ -28,7 +28,7 @@ class Van < ApplicationRecord
   def check_geocode
     self.geocode
     unless (self.latitude)
-      self.errors[:geo] << "incorrect address"
+      self.errors[:geo] << "Incorrect address"
     end
   end
 end

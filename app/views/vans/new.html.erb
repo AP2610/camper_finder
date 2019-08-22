@@ -11,12 +11,12 @@
           <%= f.input :sleeping_capacity %>
           <%= f.input :description %>
           <%= f.input :price,  label: "Price per night"  %>
-          <p class="text-danger" >
+          <%= f.input :address %>
+          <p class="errormessage_in_form" >
             <% if @van.errors %>
               <%= @van.errors.messages[:geo][0] %>
             <% end %>
           </p>
-          <%= f.input :address %>
       </div>
 
         <div class="van-image-upload">
