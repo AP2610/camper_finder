@@ -16,12 +16,10 @@
 
     <% else  %>
       <% @futur_booking.each do |booking| %>
-        <div class="relative-card">
+        <div class="">
           <%= render "shared/booking_card", booking: booking  %>
-          <div class="absolute-icon-1-1">
-            <%= link_to '<i class="fas fa-trash"></i>'.html_safe, booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }%>
-          </div>
           <br>
+
         </div>
        <% end %>
     <% end %>

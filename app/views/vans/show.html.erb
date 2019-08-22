@@ -44,10 +44,10 @@
 
       <% @van.reviews.each do |review| %>
 
-          <div class="card-product mb-3">
+          <div class="van-reviews-card mb-3">
             <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
 
-            <div class="card-product-infos">
+            <div class="van-reviews-card-infos">
               <h2>
                 <%= review.booking.user.first_name %>
               </h2>

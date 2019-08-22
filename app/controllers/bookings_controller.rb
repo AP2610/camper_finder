@@ -4,13 +4,9 @@ class BookingsController < ApplicationController
   def list
     @futur_booking = current_user.bookings.select { |booking| booking.start_date > Date.today }
     @past_booking = current_user.bookings.select { |booking| booking.start_date <= Date.today }
+    @review = Review.new
 
   end
-
-  # def new
-  #   @booking = Booking.new
-  #   raise
-  # end
 
   def create
     @booking = Booking.new
