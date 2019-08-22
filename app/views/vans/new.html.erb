@@ -1,33 +1,33 @@
 <div class="container">
+  <div class="form-title">
+    <h1>List your campervan</h1>
+    <hr>
+  </div>
 
-  <div class="form-general">
+  <div class="form">
+    <%= simple_form_for @van do |f| %>
 
-      <h1>Upload a van for renting</h1>
+      <div class="form-input"><%= f.input :title %>
+        <%= f.input :van_model %>
+        <%= f.input :sleeping_capacity %>
+        <%= f.input :description %>
+        <%= f.input :price,  label: "Price per night"  %>
+        <%= f.input :address %>
 
-      <div class="form-inputs">
-        <%= simple_form_for @van do |f| %>
-          <%= f.input :title %>
-          <%= f.input :van_model %>
-          <%= f.input :sleeping_capacity %>
-          <%= f.input :description %>
-          <%= f.input :price,  label: "Price per night"  %>
-          <%= f.input :address %>
-          <p class="errormessage_in_form" >
-            <% if @van.errors %>
-              <%= @van.errors.messages[:geo][0] %>
-            <% end %>
-          </p>
-      </div>
+        <p class="errormessage_in_form" >
+          <% if @van.errors %>
+            <%= @van.errors.messages[:geo][0] %>
+          <% end %>
+        </p>
 
         <div class="van-image-upload">
           <%= f.input :photo %>
           <%= f.input :photo_cache, as: :hidden %>
         </div>
 
-        <div class="form-actions">
           <%= f.submit "Create your listing", class: 'btn-van-list' %>
-        </div>
-      <% end %>
+    <% end %>
+      </div>
   </div>
 
 </div>
