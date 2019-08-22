@@ -10,7 +10,7 @@ class Van < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  
+
   monetize :price_cents
 
   include PgSearch::Model
@@ -20,4 +20,15 @@ class Van < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+  validate :check_geocode
+
+  private
+
+  def check_geocode
+    self.geocode
+    unless (self.latitude)
+      self.errors[:geo] << "incorrect address"
+    end
+  end
 end
