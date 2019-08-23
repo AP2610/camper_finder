@@ -12,7 +12,7 @@
 
     <% if @futur_booking.empty? %>
       <p> You have no upcoming trips. Start exploring ideas for your next trip</p>
-      <button> <%= link_to "Explore Vans", vans_path %></button>
+      <button> <%= link_to "Explore Vans", vans_path, class: "btn-van-list" %></button>
 
     <% else  %>
       <% @futur_booking.each do |booking| %>
