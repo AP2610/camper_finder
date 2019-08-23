@@ -31,6 +31,9 @@
                   <%= cl_image_tag van.user.photo.url(:bright_face), height: 40, class: "card-trip-top-avatar" %>
                 </div>
               </div>
+
+
+
               <div class="card-trip-infos">
                 <%= van.van_model%><% van.sleeping_capacity.times do  %>👤
                 <% end %>
@@ -38,9 +41,7 @@
                   <%= van.address.split[-1] %>
                 </div>
               </div>
-              <h2 class="card-trip-pricing">
-                <%=van.price %>€/per night
-              </h2>
+              </div>
             </div>
           <% end %>
         </div>
