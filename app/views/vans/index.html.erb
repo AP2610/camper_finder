@@ -1,60 +1,60 @@
 <h1 class="title-van">Find your ideal campervan</h1>
-
-<div class="form-search" id="form-search-van-index">
-  <div class="">
-    <%= form_tag vans_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-search-input",
-        placeholder: "Enter a destination"
-        %>
-  </div>
-  <div class="form-search-btn">
-    <%= submit_tag "Search", class: "btn-van-list btn-search" %>
-  </div>
-  <% end %>
-</div>
-
-
-  <div class="card-container">
-    <div class="row">
-      <% @vans.each do |van| %>
-        <div class="card col-xs-12 col-sm-6 col-lg-3">
-          <%= link_to van_path(van) do  %>
-            <div class="card-trip">
-              <div class="card-trip-top">
-                <%= cl_image_tag van.photo, class: "card-trip-top-image" %>
-                <div class="title-text">
-                  <%= van.title%>
-                </div>
-                <div>
-                  <%= cl_image_tag van.user.photo.url(:bright_face), height: 40, class: "card-trip-top-avatar" %>
-                </div>
-              </div>
-
-
-
-              <div class="card-trip-infos">
-                <%= van.van_model%><% van.sleeping_capacity.times do  %>👤
-                <% end %>
-                <div>
-                  <%= van.address.split[-1] %>
-                </div>
-              </div>
-              </div>
-            </div>
-          <% end %>
+<!-- Search box start -->
+  <div class="form-search" id="form-search-van-index">
+      <div class="">
+        <%= form_tag vans_path, method: :get do %>
+          <%= text_field_tag :query,
+           params[:query],
+            class: "form-search-input",
+           placeholder: "Enter a destinatio"
+          %>
+           </div>
+           <div class="form-search-btn">
+          <%= submit_tag "Search", class: "btn-van-list btn-search" %>
         </div>
-     <% end %>
+      <% end %>
     </div>
+<!-- Search box end -->
 
+<!-- Cards container -->
+  <div class="content">
+    <div class="cards">
+      <% @vans.each do |van| %>
+      <%= link_to van_path(van) do  %>
+      <div class="card-trip">
+        <div class="card-trip-top">
+          <%= cl_image_tag van.photo, class: "card-trip-top-image" %>
+               <div class="title-text">
+                <%= van.title%>
+                </div>
+                 <div>
+                  <%= cl_image_tag van.user.photo.url(:bright_face), height: 40, class: "card-trip-top-avatar" %>
+                 </div>
+               </div>
+              <div class="card-trip-infos">
+             <%= van.van_model%><% van.sleeping_capacity.times do  %>👤
+            <% end %>
+            <div>
+            <%= van.address.split[-1] %>
 
-      <div
+            </div>
+          </div>
+          <h2 class="card-trip-pricing">
+          <%=van.price %>€/per night
+         </h2>
+        </div>
+      <% end %>
+
+     <% end %>
+
+  <div
     id="map"
-    style="
-    width: 400px;
-    height: 600px;"
+      style="
+      width: 400px;
+     height: 600px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-  </div>
+ </div>
+</div>
+

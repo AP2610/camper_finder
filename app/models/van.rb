@@ -5,7 +5,7 @@ class Van < ApplicationRecord
   has_many :bookings
   has_many :reviews, through: :bookings
 
-  validates :title, :address, :price_cents, presence: true
+  validates :title, :address, :sleeping_capacity, :price_cents, presence: true
 
   mount_uploader :photo, PhotoUploader
   geocoded_by :address
