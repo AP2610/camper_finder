@@ -14,6 +14,14 @@
             <%= booking.end_date.strftime("%d") %>
           </p>
           <p> <%= booking.van.address %></p>
+           <% @sum = 0  %>
+           <% booking.reviews.each do |review| %>
+           <% @sum = @sum +review.rating %>
+           <% end %>
+            <p>Average rating:
+            <% (@sum/ booking.reviews.size).times do %> <span>⭐</span>
+            <% end %>
+            </p>
         </div>
       </div>
 
