@@ -3,16 +3,15 @@ class VansController < ApplicationController
   def index
     ## search methode
     user_search_input = params[:query]
-    if user_search_input
+    if !(user_search_input.to_s.empty?)
       @vans = Van.search_by_address(user_search_input)
     else
       @vans = Van.all
     end
-    # raise
 
     ## filter method - distance
     user_distance_input = params[:distance]
-    if (user_distance_input != "") && (user_search_input != "")
+    if !(user_distance_input.to_s.empty?) && !(user_search_input.to_s.empty?)
       @vans = Van.near(user_search_input, user_distance_input.to_i)
     end
 
