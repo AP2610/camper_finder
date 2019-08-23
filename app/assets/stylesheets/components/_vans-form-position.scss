@@ -3,38 +3,47 @@
   }
 
   .card-product {
-    overflow: hidden;
-    height: 120px;
-    background: white;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-  }
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
 
-  .card-product img {
-    height: 100%;
-    width: 120px;
-    object-fit: cover;
-  }
+}
 
-  .card-product h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-  }
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 
-  .card-product p {
-    font-size: 12px;
-    line-height: 1.4;
-    opacity: .7;
-    margin-bottom: 0;
-    margin-top: 8px;
-  }
+}
 
-  .card-product .card-product-infos {
-    padding: 16px;
-  }
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
 
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+
+}
+
+.card-product .card-product-infos {
+  padding: 11px;
+}
+
+.reviews-align {
+  display: block;
+  margin-top: 10px;
+}
   .swek-flex {
     display: flex;
     justify-content: center;
@@ -67,6 +76,12 @@
   .swek-reviews {
     margin-top: 10%;
     margin-bottom: 30%;
+  }
+
+  .card-product-infos.swek-card-position {
+    min-width: 85% !important;
+    min-height: 85%;
+
   }
 
   @media(max-width: 1030px) {
