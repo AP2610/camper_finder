@@ -31,10 +31,17 @@
         <h4>Reviews: </h4>
         <% @van.reviews.each do |review| %>
           <div class="card-product">
-            <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
-            <div class="card-product-infos">
+            <div>
+              <%= cl_image_tag review.booking.user.photo, alt: review.booking.user.first_name %>
+            </div>
+            <div class="card-product-infos swek-card-position">
               <h2><%= review.booking.user.first_name %></h2>
               <p><%= review.content %></p>
+              <p>
+                <% review.rating.times do %>
+                  ⭐️
+                <% end %>
+                </p>
             </div>
           </div>
         <% end %>
