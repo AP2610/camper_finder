@@ -1,17 +1,29 @@
 class VansController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   def index
-    # @vans = Van.geocoded
-
-    user_input = params[:query]
-    if user_input
-      vans = Van.search_by_address(user_input)
+    ## search methode
+    user_search_input = params[:query]
+    if user_search_input
+      @vans = Van.search_by_address(user_search_input)
     else
-      vans = Van.all
+      @vans = Van.all
     end
-    @vans = vans.select {|van| van.latitude && van.longitude}
-    # @city = van.address.split[-1]
+    # raise
 
+    ## filter method - distance
+    user_distance_input = params[:distance]
+    if (user_distance_input != "") && (user_search_input != "")
+      @vans = Van.near(user_search_input, user_distance_input.to_i)
+    end
+
+    # filter method - sleeping capacity
+    user_sleepcap_input = params[:sleep_capacity]
+    if user_sleepcap_input != ""
+      @vans = @vans.select {|van| van.sleeping_capacity >= user_sleepcap_input.to_i }
+    end
+
+    # making markers on the map
+    @vans = @vans.select {|van| van.latitude && van.longitude}
     @markers = @vans.map do |van|
       {
         lat: van.latitude,
