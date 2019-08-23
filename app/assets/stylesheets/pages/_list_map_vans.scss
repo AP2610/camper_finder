@@ -1,19 +1,29 @@
 .content {
   display: flex;
+  margin: 10px;
 }
 .cards {
-  flex-grow: 1;
+  // flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
-  padding: 16px;
+  margin: 10px;
 }
 
+.subtitle-van {
+  font-weight: lighter;
+  padding-left: 20px;
+  font-style: italic;
+}
 
 #map {
   height: 100vh;
+  width: 50vw;
   position: sticky;
   top: 0;
+  margin: 10px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
+  border-radius: 3px;
 }
 
 #form-search-van-index {
@@ -23,12 +33,12 @@
   margin-left: 15px;
 }
 
-#gmap_map {
-  flex: 0 0 450px;
-  height: 100vh;
-  position: sticky !important;
-  top: 0 !important;
-}
+// #gmap_map {
+//   // flex: 0 0 450px;
+//   height: 100vh;
+//   position: sticky !important;
+//   top: 0 !important;
+// }
 
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

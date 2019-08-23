@@ -1,4 +1,5 @@
 <h1 class="title-van">Find your ideal campervan</h1>
+<h5 class="subtitle-van">Seek and you shall find</h5>
 <!-- Search box start -->
 <div class="form-search" id="form-search-van-index">
 
@@ -32,44 +33,37 @@
 <!-- Search box end -->
 
 <!-- Cards container -->
-  <div class="content">
+<div class="content">
     <div class="cards">
       <% @vans.each do |van| %>
-      <%= link_to van_path(van) do  %>
-      <div class="card-trip">
-        <div class="card-trip-top">
-          <%= cl_image_tag van.photo, class: "card-trip-top-image" %>
-               <div class="title-text">
-                <%= van.title%>
+        <%= link_to van_path(van) do  %>
+          <div class="card-trip">
+            <div class="card-trip-top">
+              <%= cl_image_tag van.photo, class: "card-trip-top-image" %>
+                <div class="title-text">
+                  <%= van.title%>
                 </div>
-                 <div>
+                <div>
                   <%= cl_image_tag van.user.photo.url(:bright_face), height: 40, class: "card-trip-top-avatar" %>
-                 </div>
-               </div>
-              <div class="card-trip-infos">
-             <%= van.van_model%><% van.sleeping_capacity.times do  %>👤
-            <% end %>
-            <div>
-            <%= van.address.split[-1] %>
-
+                </div>
             </div>
-          </div>
-          <h2 class="card-trip-pricing">
-          <%=van.price %>€/per night
-         </h2>
-        </div>
+            <div class="card-trip-infos">
+              <%= van.van_model%><% van.sleeping_capacity.times do  %>👤
+              <% end %>
+              <div>
+                <%= van.address.split[-1] %>
+              </div>
+            </div>
+              <h2 class="card-trip-pricing"><%=van.price %>€/per night</h2>
+            </div>
+        <% end %>
       <% end %>
-
-     <% end %>
+    </div>
 
   <div
     id="map"
-      style="
-      width: 400px;
-     height: 600px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
  </div>
 </div>
-
