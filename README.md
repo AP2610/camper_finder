@@ -10,7 +10,7 @@
 
 ## What technology stacks ?
 - The backend is Ruby on Rails
-  - filtering function
+  - search and filtering function
   - cloudinary integration
 - The front end
   - HTML
